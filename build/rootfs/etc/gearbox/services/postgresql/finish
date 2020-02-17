@@ -1,0 +1,12 @@
+#!/bin/bash
+# WARNING: This file has been auto-generated. DO NOT EDIT: WARNING
+# Created on 2020-02-17T19:32:10+1100, using template:finish.tmpl and json:docker-postgresql.json
+
+# See gearboxworks/gearbox-base for details.
+. /build/include-me.sh
+
+# Required to avoid services starting too quickly.
+sleep 5
+
+c_ok "Gearbox[postgresql]: Stopped."
+
