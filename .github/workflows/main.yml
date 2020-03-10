@@ -15,4 +15,5 @@ jobs:
     - name: 02-build
       # run: make ${{steps.pull.args }}
       run: make build-12.2
+    - name: 03-test
       run: make test-12.2
