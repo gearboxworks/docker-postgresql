@@ -10,22 +10,29 @@ jobs:
       SSH_KEY: ${{ secrets.SSH_KEY }}
       DOCKERHUB_TOKEN: ${{ secrets.DOCKERHUB_TOKEN }}
     steps:
+    - name: 00-env
+      if: "${DOCKERHUB_TOKEN}" == ""
+      run: exit 1
     - name: 01-pull
       id: pull
       uses: actions/checkout@master
       # with:
       #   args: build-12.2
-    - name: 01-list
+    - name: 02-list
+      needs: 01-pull
       run: ls -l
-    - name: 02-build
+    - name: 03-build
+      needs: 02-list
       # run: make ${{steps.pull.args }}
       run: make build-12.2
-    - name: 03-test
+    - name: 04-test
+      needs: 03-build
       run: |
         eval "$(ssh-agent -s)"
         ssh-add - <<< "${SSH_KEY}"
         make test-12.2
-    - name: 03-test
+    - name: 05-push
+      needs: 04-test
       run: |
         docker login --username gearboxbuild --password "${DOCKERHUB_TOKEN}"
-        make dockerhub
+        make dockerhub-all
