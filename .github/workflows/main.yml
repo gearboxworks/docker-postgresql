@@ -2,7 +2,6 @@ on: [push]
 #  release:
 #    types: [published]
 
-
 jobs:
   build_docker_postgreqsql:
     runs-on: ubuntu-latest
@@ -32,4 +31,4 @@ jobs:
     - name: 05-push
       run: |
         docker login --username gearboxbuild --password "${DOCKERHUB_TOKEN}"
-        make dockerhub-all
+        make dockerhub-12.2
