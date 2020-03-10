@@ -7,7 +7,7 @@ jobs:
     steps:
     - name: 01-latest
       id: latest
-      uses: gearboxworks/docker-postgresql@latest
+      uses: gearboxworks/docker-postgresql
       with:
         args: build-12.2
     - name: 01-list
