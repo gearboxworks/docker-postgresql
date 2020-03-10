@@ -8,12 +8,13 @@ jobs:
     name: Building docker-postgresql
     env:
       SSH_KEY: ${{ secrets.SSH_KEY }}
+      DOCKERHUB_TOKEN: ${{ secrets.DOCKERHUB_TOKEN }}
     steps:
     - name: 01-pull
       id: pull
       uses: actions/checkout@master
-#      with:
-#        args: build-12.2
+      # with:
+      #   args: build-12.2
     - name: 01-list
       run: ls -l
     - name: 02-build
@@ -24,3 +25,7 @@ jobs:
         eval "$(ssh-agent -s)"
         ssh-add - <<< "${SSH_KEY}"
         make test-12.2
+    - name: 03-test
+      run: |
+        docker login --username gearboxbuild
+        make dockerhub
