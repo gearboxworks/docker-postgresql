@@ -5,6 +5,7 @@ jobs:
     runs-on: ubuntu-latest
     name: Building docker-postgresql
     steps:
-    # Use the output from the `hello` step
-    - name: 01-build
+    - name: 01-list
+      run: ls -l
+    - name: 02-build
       run: make build-12.2
