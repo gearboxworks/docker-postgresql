@@ -24,7 +24,7 @@ do
 	. "${VERSION}/.env"
 
 	echo "# Gearbox[${GB_CONTAINERVERSION}]: Checking network."
-	${DIR}/bin/_CheckNetwork.sh
+	${DIR}/_CheckNetwork.sh
 
 	echo "# Gearbox[${GB_CONTAINERVERSION}]: Starting container."
 	docker start ${GB_CONTAINERVERSION}
