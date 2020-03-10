@@ -11,7 +11,7 @@ jobs:
       DOCKERHUB_TOKEN: ${{ secrets.DOCKERHUB_TOKEN }}
     steps:
     - name: 00-env
-      if: env.DOCKERHUB_TOKEN == ""
+      if: env.DOCKERHUB_TOKEN == ''
       run: exit 1
     - name: 01-pull
       id: pull
