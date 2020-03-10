@@ -1,0 +1,10 @@
+on: [push]
+
+jobs:
+  build_docker_postgreqsql:
+    runs-on: ubuntu-latest
+    name: Building docker-postgresql
+    steps:
+    # Use the output from the `hello` step
+    - name: 01-build
+      run: make build-12.2
