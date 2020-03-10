@@ -131,7 +131,7 @@ push-%:
 
 ################################################################################
 dockerhub:
-	@./bin/$@.sh $(VERSION)
+	@./bin/push-dockerhub.sh $(VERSION)
 dockerhub-%:
 	@./bin/push-dockerhub.sh "$*"
 
