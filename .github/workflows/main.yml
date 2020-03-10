@@ -27,5 +27,5 @@ jobs:
         make test-12.2
     - name: 03-test
       run: |
-        docker login --username gearboxbuild
+        docker login --username gearboxbuild --password "${DOCKERHUB_TOKEN}"
         make dockerhub
