@@ -42,6 +42,9 @@ do
 	STATE="$(${DIR}/_CheckContainer.sh ${GB_CONTAINERVERSION})"
 	case ${STATE} in
 		'STARTED')
+			set -x
+			apt-get install -y sshpass
+
 			SSHPASS="$(which sshpass)"
 			if [ "${SSHPASS}" != "" ]
 			then
