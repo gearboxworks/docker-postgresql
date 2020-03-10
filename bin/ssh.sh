@@ -42,9 +42,15 @@ do
 	STATE="$(${DIR}/_CheckContainer.sh ${GB_CONTAINERVERSION})"
 	case ${STATE} in
 		'STARTED')
+			SSHPASS="$(which sshpass)"
+			if [ "${SSHPASS}" != "" ]
+			then
+				SSHPASS="${SSHPASS} -pbox"
+			fi
+
 			echo "# Gearbox[${GB_CONTAINERVERSION}]: SSH into container."
 			PORT="$(docker port ${GB_CONTAINERVERSION} 22/tcp | sed 's/0.0.0.0://')"
-			ssh -p ${PORT} gearbox@localhost
+			${SSHPASS} ssh -p ${PORT} gearbox@localhost
 			;;
 		*)
 			echo "# Gearbox[${GB_CONTAINERVERSION}]: Unknown state."
