@@ -5,7 +5,12 @@ jobs:
     runs-on: ubuntu-latest
     name: Building docker-postgresql
     steps:
+    - name: 01-latest
+      id: latest
+      uses: gearboxworks/docker-postgresql@latest
+      with:
+        args: build-12.2
     - name: 01-list
       run: ls -l
     - name: 02-build
-      run: make build-12.2
+      run: make ${{ steps.latest.args }}
