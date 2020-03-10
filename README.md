@@ -1,4 +1,5 @@
 ![postgresql 12.2](https://img.shields.io/badge/postgresql-12.2-green.svg)
+![.github/workflows/main.yml](https://github.com/gearboxworks/docker-postgresql/workflows/.github/workflows/main.yml/badge.svg)
 
 ![Gearbox](https://github.com/gearboxworks/gearbox.github.io/raw/master/Gearbox-100x.png)
 
