@@ -5,12 +5,14 @@ jobs:
     runs-on: ubuntu-latest
     name: Building docker-postgresql
     steps:
-    - name: 01-master
-      id: master
+    - name: 01-pull
+      id: pull
       uses: actions/checkout@master
 #      with:
 #        args: build-12.2
     - name: 01-list
       run: ls -l
     - name: 02-build
-      run: make ${{steps.master.args }}
+      # run: make ${{steps.pull.args }}
+      run: make build-12.2
+      run: make test-12.2
