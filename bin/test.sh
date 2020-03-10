@@ -43,7 +43,7 @@ do
 	case ${STATE} in
 		'STARTED')
 			set -x
-			apt-get install -y sshpass
+			ls -l /usr/bin/ssh*
 
 			SSHPASS="$(which sshpass)"
 			if [ "${SSHPASS}" != "" ]
@@ -53,7 +53,8 @@ do
 
 			echo "# Gearbox[${GB_CONTAINERVERSION}]: Running unit-tests."
 			PORT="$(docker port ${GB_CONTAINERVERSION} 22/tcp | sed 's/0.0.0.0://')"
-			ssh -p ${PORT} gearbox@localhost /etc/gearbox/unit-tests/run.sh
+
+			ssh -p ${PORT} -o StrictHostKeyChecking=no gearbox@localhost /etc/gearbox/unit-tests/run.sh
 			;;
 		*)
 			echo "# Gearbox[${GB_CONTAINERVERSION}]: Unknown state."
