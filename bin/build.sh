@@ -45,6 +45,8 @@ do
 
 	elif [ "${GB_REF}" != "" ]
 	then
+		echo "# Gearbox[${GB_IMAGENAME}:${GB_VERSION}]: Pull ref container."
+		docker pull "${GB_REF}"
 		echo "# Gearbox[${GB_IMAGENAME}:${GB_VERSION}]: Query ref container."
 		GEARBOX_ENTRYPOINT="$(docker inspect --format '{{ join .ContainerConfig.Entrypoint " " }}' "${GB_REF}")"
 		export GEARBOX_ENTRYPOINT
