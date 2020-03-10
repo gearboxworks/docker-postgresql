@@ -3,24 +3,24 @@ on: [push]
 #    types: [published]
 
 jobs:
-	build_docker_postgreqsql:
-		runs-on: ubuntu-latest
-		name: Building docker-postgresql
-		env:
-			SSH_KEY: ${{ secrets.SSH_KEY }}
-		steps:
-		- name: 01-pull
-			id: pull
-			uses: actions/checkout@master
-#			with:
-#				args: build-12.2
-		- name: 01-list
-			run: ls -l
-		- name: 02-build
-			# run: make ${{steps.pull.args }}
-			run: make build-12.2
-		- name: 03-test
-			run: |
-				eval "$(ssh-agent -s)"
-				ssh-add - <<< "${SSH_KEY}"
-				make test-12.2
+  build_docker_postgreqsql:
+    runs-on: ubuntu-latest
+    name: Building docker-postgresql
+    env:
+      SSH_KEY: ${{ secrets.SSH_KEY }}
+    steps:
+    - name: 01-pull
+      id: pull
+      uses: actions/checkout@master
+#      with:
+#        args: build-12.2
+    - name: 01-list
+      run: ls -l
+    - name: 02-build
+      # run: make ${{steps.pull.args }}
+      run: make build-12.2
+    - name: 03-test
+      run: |
+        eval "$(ssh-agent -s)"
+        ssh-add - <<< "${SSH_KEY}"
+        make test-12.2
