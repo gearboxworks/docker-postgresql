@@ -6,6 +6,8 @@ jobs:
 	build_docker_postgreqsql:
 		runs-on: ubuntu-latest
 		name: Building docker-postgresql
+		env:
+			SSH_KEY: ${{ secrets.SSH_KEY }}
 		steps:
 		- name: 01-pull
 			id: pull
@@ -18,8 +20,6 @@ jobs:
 			# run: make ${{steps.pull.args }}
 			run: make build-12.2
 		- name: 03-test
-			env:
-				SSH_KEY: ${{ secrets.SSH_KEY }}
 			run: |
 				eval "$(ssh-agent -s)"
 				ssh-add - <<< "${SSH_KEY}"
