@@ -1,6 +1,6 @@
-on: [push]
-#  release:
-#    types: [published]
+on:
+  release:
+    types: [published]
 
 jobs:
   build_docker_postgreqsql:
@@ -16,19 +16,17 @@ jobs:
     - name: 01-pull
       id: pull
       uses: actions/checkout@master
-      # with:
-      #   args: build-12.2
     - name: 02-list
       run: ls -l
     - name: 03-build
       # run: make ${{steps.pull.args }}
-      run: make build-12.2
+      run: make build-all
     - name: 04-test
       run: |
         eval "$(ssh-agent -s)"
         ssh-add - <<< "${SSH_KEY}"
-        make test-12.2
+        make test-all
     - name: 05-push
       run: |
         docker login --username gearboxbuild --password "${DOCKERHUB_TOKEN}"
-        make dockerhub-12.2
+        make dockerhub-all
