@@ -1,5 +1,6 @@
 #!/bin/bash
-# Created on 2020-02-18T20:03:12+1100, using template:postgresql.sh.tmpl and json:postgresql-10.12.json
+# Created on 2020-03-14T02:58:24+1100, using template:postgresql.sh.tmpl and json:gearbox.json
+
 test -f /etc/gearbox/bin/colors.sh && . /etc/gearbox/bin/colors.sh
 
 c_ok "Started."
