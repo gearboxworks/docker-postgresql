@@ -1,7 +1,7 @@
-![Gearbox](https://github.com/gearboxworks/gearbox.github.io/raw/master/Gearbox-100x.png)
+![Gearbox](https://raw.githubusercontent.com/gearboxworks/gearboxworks.github.io/master/assets/images/gearbox-logo.png)
 
 
-# Another [Gearbox](https://github.com/gearboxworks/) Docker container service - postgresql
+# postgresql Docker container service for [Gearbox](https://github.com/gearboxworks/)
 This is the repository for the [postgresql](https://www.postgresql.org/) Docker container implemented for [Gearbox](https://github.com/gearboxworks/).
 
 
@@ -12,15 +12,14 @@ GitHub release(latest): ![last-release-date](https://img.shields.io/github/relea
 
 
 ## Supported versions and respective Dockerfiles
-| Service | GitHub Version | Docker Version | Docker Size | Docker Tags | Dockerfile |
-| ------- | -------------- | -------------- | ----------- | ----------- | ---------- |
-| [postgresql](https://www.postgresql.org/) | ![postgresql](https://img.shields.io/badge/postgresql-10.12-green.svg) | ![Docker Version)](https://img.shields.io/docker/v/gearboxworks/postgresql/10.12) | ![Docker Size](https://img.shields.io/docker/image-size/gearboxworks/postgresql/10.12) | `10.12`, `10` | _([10.12/DockerfileRuntime](https://github.com/gearboxworks/docker-postgresql/blob/master/10/DockerfileRuntime))_ |
-| [postgresql](https://www.postgresql.org/) | ![postgresql](https://img.shields.io/badge/postgresql-11.7-green.svg) | ![Docker Version)](https://img.shields.io/docker/v/gearboxworks/postgresql/11.7) | ![Docker Size](https://img.shields.io/docker/image-size/gearboxworks/postgresql/11.7) | `11.7`, `11` | _([11.7/DockerfileRuntime](https://github.com/gearboxworks/docker-postgresql/blob/master/11/DockerfileRuntime))_ |
-| [postgresql](https://www.postgresql.org/) | ![postgresql](https://img.shields.io/badge/postgresql-12.2-green.svg) | ![Docker Version)](https://img.shields.io/docker/v/gearboxworks/postgresql/12.2) | ![Docker Size](https://img.shields.io/docker/image-size/gearboxworks/postgresql/12.2) | `12.2`, `12`, `latest` | _([12.2/DockerfileRuntime](https://github.com/gearboxworks/docker-postgresql/blob/master/12/DockerfileRuntime))_ |
-| [postgresql](https://www.postgresql.org/) | ![postgresql](https://img.shields.io/badge/postgresql-9.4.26-green.svg) | ![Docker Version)](https://img.shields.io/docker/v/gearboxworks/postgresql/9.4.26) | ![Docker Size](https://img.shields.io/docker/image-size/gearboxworks/postgresql/9.4.26) | `9.4.26`, `9.4` | _([9.4.26/DockerfileRuntime](https://github.com/gearboxworks/docker-postgresql/blob/master/9.4/DockerfileRuntime))_ |
-| [postgresql](https://www.postgresql.org/) | ![postgresql](https://img.shields.io/badge/postgresql-9.5.21-green.svg) | ![Docker Version)](https://img.shields.io/docker/v/gearboxworks/postgresql/9.5.21) | ![Docker Size](https://img.shields.io/docker/image-size/gearboxworks/postgresql/9.5.21) | `9.5.21`, `9.5` | _([9.5.21/DockerfileRuntime](https://github.com/gearboxworks/docker-postgresql/blob/master/9.5/DockerfileRuntime))_ |
-| [postgresql](https://www.postgresql.org/) | ![postgresql](https://img.shields.io/badge/postgresql-9.6.17-green.svg) | ![Docker Version)](https://img.shields.io/docker/v/gearboxworks/postgresql/9.6.17) | ![Docker Size](https://img.shields.io/docker/image-size/gearboxworks/postgresql/9.6.17) | `9.6.17`, `9.6` | _([9.6.17/DockerfileRuntime](https://github.com/gearboxworks/docker-postgresql/blob/master/9.6/DockerfileRuntime))_ |
-
+| Service | GitHub Version | Docker Version | Docker Size | Docker Tags |
+| ------- | -------------- | -------------- | ----------- | ----------- |
+| [postgresql](https://www.postgresql.org/) | ![postgresql](https://img.shields.io/badge/postgresql-10.12-green.svg) | ![Docker Version)](https://img.shields.io/docker/v/gearboxworks/postgresql/10.12) | ![Docker Size](https://img.shields.io/docker/image-size/gearboxworks/postgresql/10.12) | _([`10.12`, `10`](https://github.com/gearboxworks/docker-postgresql/blob/master/10/DockerfileRuntime))_ |
+| [postgresql](https://www.postgresql.org/) | ![postgresql](https://img.shields.io/badge/postgresql-11.7-green.svg) | ![Docker Version)](https://img.shields.io/docker/v/gearboxworks/postgresql/11.7) | ![Docker Size](https://img.shields.io/docker/image-size/gearboxworks/postgresql/11.7) | _([`11.7`, `11`](https://github.com/gearboxworks/docker-postgresql/blob/master/11/DockerfileRuntime))_ |
+| [postgresql](https://www.postgresql.org/) | ![postgresql](https://img.shields.io/badge/postgresql-12.2-green.svg) | ![Docker Version)](https://img.shields.io/docker/v/gearboxworks/postgresql/12.2) | ![Docker Size](https://img.shields.io/docker/image-size/gearboxworks/postgresql/12.2) | _([`12.2`, `12`, `latest`](https://github.com/gearboxworks/docker-postgresql/blob/master/12/DockerfileRuntime))_ |
+| [postgresql](https://www.postgresql.org/) | ![postgresql](https://img.shields.io/badge/postgresql-9.4.26-green.svg) | ![Docker Version)](https://img.shields.io/docker/v/gearboxworks/postgresql/9.4.26) | ![Docker Size](https://img.shields.io/docker/image-size/gearboxworks/postgresql/9.4.26) | _([`9.4.26`, `9.4`](https://github.com/gearboxworks/docker-postgresql/blob/master/9.4/DockerfileRuntime))_ |
+| [postgresql](https://www.postgresql.org/) | ![postgresql](https://img.shields.io/badge/postgresql-9.5.21-green.svg) | ![Docker Version)](https://img.shields.io/docker/v/gearboxworks/postgresql/9.5.21) | ![Docker Size](https://img.shields.io/docker/image-size/gearboxworks/postgresql/9.5.21) | _([`9.5.21`, `9.5`](https://github.com/gearboxworks/docker-postgresql/blob/master/9.5/DockerfileRuntime))_ |
+| [postgresql](https://www.postgresql.org/) | ![postgresql](https://img.shields.io/badge/postgresql-9.6.17-green.svg) | ![Docker Version)](https://img.shields.io/docker/v/gearboxworks/postgresql/9.6.17) | ![Docker Size](https://img.shields.io/docker/image-size/gearboxworks/postgresql/9.6.17) | _([`9.6.17`, `9.6`](https://github.com/gearboxworks/docker-postgresql/blob/master/9.6/DockerfileRuntime))_ |
 
 
 ## Using this container.
@@ -47,7 +46,7 @@ Simply clone this repository to your local machine
 `make push` - Push already built Docker images to Docker Hub, (only for Gearbox admins). Push all versions from the base directory or specific versions from each directory.
 
 ### Runtime from GitHub repo
-When you `cd` into a version directory you can also perform a few more actions.
+You can either build your container as above, or use it from DockerHub with these commands:
 
 `make start` - Spin up a Docker container with the correct runtime configs.
 

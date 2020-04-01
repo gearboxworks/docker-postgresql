@@ -1,0 +1,87 @@
+
+################################################################################
+# WARNING: This file has been auto-generated. DO NOT EDIT: WARNING
+# Created on 2020-04-01T12:00:33+1100, using template:DockerfileRuntime.tmpl and json:gearbox.json
+# Referenced Docker container for docker-postgresql based off gearboxworks/gearbox-base:alpine-3.11 with postgres:9.4.26-alpine overlayed.
+
+ARG VERSION=9.4.26
+
+# 1. First reference the gearbox-base image.
+FROM gearboxworks/gearbox-base:alpine-3.11 as gearbox-base
+
+# 2. Next reference the third party image.
+FROM postgres:9.4.26-alpine
+ARG VERSION
+ARG GEARBOX_ENTRYPOINT
+ARG GEARBOX_ENTRYPOINT_ARGS
+USER root
+
+# 3. Copy the build directory over from gearbox-base image.
+COPY --from=gearbox-base /etc/gearbox /etc/gearbox
+
+# 4. Set up env variables.
+MAINTAINER Gearbox Team <team@gearbox.works>
+ENV GEARBOX_CONTAINER_NAME "docker-postgresql"
+ENV GEARBOX_CONTAINER_VERSION ${VERSION}
+ENV GEARBOX_ENTRYPOINT ${GEARBOX_ENTRYPOINT}
+ENV GEARBOX_ENTRYPOINT_ARGS ${GEARBOX_ENTRYPOINT_ARGS}
+LABEL gearbox.json='{"schema": "gear-1","meta": {"state": "production","organization": "gearboxworks","name": "postgresql","label": "Postgresql","maintainer": "Gearbox Team <team@gearbox.works>","class": "dbserver","refurl": "https://www.postgresql.org/"},"build": {"ports": {"unknown": "8080","postgres": "5432"},"run": "","args": "-d postgres","env": {"PGDATA": "/var/lib/postgresql/data","POSTGRES_PASSWORD": "password","POSTGRES_USER": "gearbox"},"network": "--network gearboxnet","volumes": "","restart": "--restart no"},"run": {},"project": {},"extensions": {},"versions": {"10.12": {"majorversion": "10","latest": false,"ref": "postgres:10.12-alpine","base": "gearboxworks/gearbox-base:alpine-3.11"},"11.7": {"majorversion": "11","latest": false,"ref": "postgres:11.7-alpine","base": "gearboxworks/gearbox-base:alpine-3.11"},"12.2": {"majorversion": "12","latest": true,"ref": "postgres:12.2-alpine","base": "gearboxworks/gearbox-base:alpine-3.11"},"9.4.26": {"majorversion": "9.4","latest": false,"ref": "postgres:9.4.26-alpine","base": "gearboxworks/gearbox-base:alpine-3.11"},"9.5.21": {"majorversion": "9.5","latest": false,"ref": "postgres:9.5.21-alpine","base": "gearboxworks/gearbox-base:alpine-3.11"},"9.6.17": {"majorversion": "9.6","latest": false,"ref": "postgres:9.6.17-alpine","base": "gearboxworks/gearbox-base:alpine-3.11"},"": {}}}'
+LABEL gearbox.version='9.4.26'
+ENV GEARBOX_VERSION "9.4.26"
+LABEL container.class="dbserver"
+ENV GEARBOX_CLASS "dbserver"
+LABEL container.label="Postgresql"
+ENV GEARBOX_LABEL "Postgresql"
+LABEL container.maintainer="Gearbox Team <team@gearbox.works>"
+ENV GEARBOX_MAINTAINER "Gearbox Team <team@gearbox.works>"
+LABEL container.name="postgresql"
+ENV GEARBOX_NAME "postgresql"
+LABEL container.organization="gearboxworks"
+ENV GEARBOX_ORGANIZATION "gearboxworks"
+LABEL container.refurl="https://www.postgresql.org/"
+ENV GEARBOX_REFURL "https://www.postgresql.org/"
+LABEL container.state="production"
+ENV GEARBOX_STATE "production"
+LABEL container.args="-d postgres"
+ENV GEARBOX_ARGS "-d postgres"
+# SKIP env
+LABEL container.network="--network gearboxnet"
+ENV GEARBOX_NETWORK "--network gearboxnet"
+LABEL container.ports="map[postgres:5432 unknown:8080]"
+ENV GEARBOX_PORTS "map[postgres:5432 unknown:8080]"
+LABEL container.restart="--restart no"
+ENV GEARBOX_RESTART "--restart no"
+LABEL container.run=""
+ENV GEARBOX_RUN ""
+LABEL container.volumes=""
+ENV GEARBOX_VOLUMES ""
+LABEL container.base="gearboxworks/gearbox-base:alpine-3.11"
+ENV GEARBOX_BASE "gearboxworks/gearbox-base:alpine-3.11"
+LABEL container.latest="false"
+ENV GEARBOX_LATEST "false"
+LABEL container.majorversion="9.4"
+ENV GEARBOX_MAJORVERSION "9.4"
+LABEL container.ref="postgres:9.4.26-alpine"
+ENV GEARBOX_REF "postgres:9.4.26-alpine"
+ENV PGDATA "/var/lib/postgresql/data"
+ENV POSTGRES_PASSWORD "password"
+ENV POSTGRES_USER "gearbox"
+
+# 5. Now copy the local files specific to this container.
+COPY build /etc/gearbox
+COPY versions/${VERSION}/build /etc/gearbox
+
+# 6. Run the base.sh script to set everything up.
+RUN /bin/sh /etc/gearbox/build/base.sh
+
+# 7. Run the postgresql.sh script to set everything up.
+RUN /bin/sh /etc/gearbox/build/postgresql.sh
+
+# 8. Expose ports.
+EXPOSE 22 9970 5432 8080 
+WORKDIR /home/gearbox/projects
+
+CMD ["/init"]
+
+# END
+################################################################################

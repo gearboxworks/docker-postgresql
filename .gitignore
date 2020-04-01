@@ -1,3 +1,4 @@
+*/logs/*.log
 release.tgz
 .*.swp
 docker-template
