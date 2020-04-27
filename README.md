@@ -70,9 +70,9 @@ Create, and start the postgresql Gearbox container. Run a shell.
 
 `./bin/gb-launch -gb-name postgresql -gb-shell`
 
-Create, and start the postgresql Gearbox container with version 10.12 and run a shell.
+Create, and start the postgresql Gearbox container with version  and run a shell.
 
-`./bin/gb-launch -gb-name postgresql -gb-version 10.12 -gb-shell`
+`./bin/gb-launch -gb-name postgresql -gb-version  -gb-shell`
 
 If postgresql is symlinked to `gb-launch`, then you can drop the `-gb-name` flag.
 
@@ -82,18 +82,18 @@ Running postgresql Gearbox container default command. If a container has a defau
 
 `./bin/postgresql -flag1 -flag2 variable`
 
-`./bin/gb-launch -gb-name postgresql -gb-version 10.12 -flag1 -flag2 variable`
+`./bin/gb-launch -gb-name postgresql -gb-version  -flag1 -flag2 variable`
 
 
 Running alternate commands within the postgresql Gearbox container.
 
 `./bin/postgresql -gb-shell -- ls -l`
 
-`./bin/gb-launch -gb-name postgresql -gb-version 10.12 -gb-shell -- ls -l`
+`./bin/gb-launch -gb-name postgresql -gb-version  -gb-shell -- ls -l`
 
 `./bin/postgresql -gb-shell -- ps -eaf`
 
-`./bin/gb-launch -gb-name postgresql -gb-version 10.12 -gb-shell -- ps -eaf`
+`./bin/gb-launch -gb-name postgresql -gb-version  -gb-shell -- ps -eaf`
 
 
 ssh - All [Gearbox](https://github.com/gearboxworks/) containers have a running SSH daemon. So you can connect remotely.
