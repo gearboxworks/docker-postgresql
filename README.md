@@ -47,16 +47,15 @@ It provides three important functional areas, without any Docker container learn
 It also provides a functional SSH daemon for connecting remotely as well as a standard set of common tools and utilities.
 
 
-### Setup from GitHub repo
+### Download launch
 `launch` is currently in beta testing and is included along with all Gearbox Docker repos.
 Once out of beta, it will be included within the Gearbox installation package.
 
-For now, simply download the `launch` binaries.
+For now, simply download the standalone `launch` binary for your O/S.
 - [Mac OSX 64bit](https://github.com/gearboxworks/docker-template/raw/master/bin/Darwin/launch)
 - [Linux 64bit](https://github.com/gearboxworks/docker-template/raw/master/bin/Linux/launch)
 - [Windows 64bit](https://github.com/gearboxworks/docker-template/raw/master/bin/Windows/launch)
 
-`git clone https://github.com/gearboxworks/docker-postgresql.git`
 
 ### Running launch
 There are many ways to call launch, either directly or indirectly.
@@ -65,44 +64,41 @@ This allows a devloper to try multiple versions of software as though they were 
 
 If a container is missing, it will be downloaded and created. Multiple versions can co-exist.
 
-Create, and start the postgresql Gearbox container.
+Install, create, and start the postgresql Gearbox container.
 
-`./bin/launch -gb-name postgresql`
+`./launch install postgresql`
 
 Create, and start the postgresql Gearbox container. Run a shell.
 
-`./bin/launch -gb-name postgresql -gb-shell`
+`./launch shell postgresql`
 
-Create, and start the postgresql Gearbox container with version 9.4.26 and run a shell.
+Create, and start the postgresql Gearbox container with version 12.2 and run a shell.
 
-`./bin/launch -gb-name postgresql -gb-version 9.4.26 -gb-shell`
+`./launch shell postgresql:12.2`
 
-If postgresql is symlinked to `launch`, then you can drop the `-gb-name` flag.
+If postgresql is symlinked to `launch`, then the Gearbox container will be determined automatically.
+Symlinks will be created upon installation.
 
-`./bin/postgresql`
+`./postgresql`
 
 Running postgresql Gearbox container default command. If a container has a default interactive command, arguments can be supplied without specifying that command.
 
-`./bin/postgresql -flag1 -flag2 variable`
+`./postgresql -flag1 -flag2 variable`
 
-`./bin/launch -gb-name postgresql -gb-version 9.4.26 -flag1 -flag2 variable`
+`./launch postgresql:12.2 -flag1 -flag2 variable`
 
 
 Running alternate commands within the postgresql Gearbox container.
 
-`./bin/postgresql -gb-shell -- ls -l`
+`./launch shell postgresql:12.2 ls -l`
 
-`./bin/launch -gb-name postgresql -gb-version 9.4.26 -gb-shell -- ls -l`
-
-`./bin/postgresql -gb-shell -- ps -eaf`
-
-`./bin/launch -gb-name postgresql -gb-version 9.4.26 -gb-shell -- ps -eaf`
+`./launch shell postgresql:12.2 ps -eaf`
 
 
 ssh - All [Gearbox](https://github.com/gearboxworks/) containers have a running SSH daemon. So you can connect remotely.
 To show what ports are exported to the host.
 
-`./bin/launch -gb-name postgresql -gb-list`
+`./launch list postgresql`
 
 
 ## Method 2: GitHub repo
