@@ -29,6 +29,8 @@
 	},
 	"run": {
 		"commands": {
+			"default": "/usr/local/bin/psql",
+			"psql": "/usr/local/bin/psql",
 			"clusterdb": "/usr/local/bin/clusterdb",
 			"createdb": "/usr/local/bin/createdb",
 			"createlang": "/usr/local/bin/createlang",
@@ -57,7 +59,6 @@
 			"pg_xlogdump": "/usr/local/bin/pg_xlogdump",
 			"pgbench": "/usr/local/bin/pgbench",
 			"postmaster": "/usr/local/bin/postmaster",
-			"psql": "/usr/local/bin/psql",
 			"reindexdb": "/usr/local/bin/reindexdb",
 			"vacuumdb": "/usr/local/bin/vacuumdb",
 			"vacuumlo": "/usr/local/bin/vacuumlo"
