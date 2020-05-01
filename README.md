@@ -72,13 +72,13 @@ Create, and start the postgresql Gearbox container. Run a shell.
 
 `./launch shell postgresql`
 
-Create, and start the postgresql Gearbox container with version 9.5.21 and run a shell.
+Create, and start the postgresql Gearbox container with version 11.7 and run a shell.
 
-`./launch shell postgresql:9.5.21`
+`./launch shell postgresql:11.7`
 
-`./launch shell postgresql:9.5.21 ls -l`
+`./launch shell postgresql:11.7 ls -l`
 
-`./launch shell postgresql:9.5.21 ps -eaf`
+`./launch shell postgresql:11.7 ps -eaf`
 
 
 ### Available commands
@@ -91,14 +91,14 @@ Running postgresql Gearbox container default command. If a container has a defau
 
 `./postgresql -flag1 -flag2 variable`
 
-`./launch postgresql:9.5.21 -flag1 -flag2 variable`
+`./launch postgresql:11.7 -flag1 -flag2 variable`
 
 Gearbox containers may have multiple executables that can be run. The postgresql Gearbox container has the following available commands:
 - `clusterdb` - will execute `/usr/local/bin/clusterdb` within the container.
 - `createdb` - will execute `/usr/local/bin/createdb` within the container.
 - `createlang` - will execute `/usr/local/bin/createlang` within the container.
 - `createuser` - will execute `/usr/local/bin/createuser` within the container.
-- Is the default command and will execute `/usr/local/bin/psql` within the container.
+- The default command will execute `/usr/local/bin/psql` within the container.
 - `dropdb` - will execute `/usr/local/bin/dropdb` within the container.
 - `droplang` - will execute `/usr/local/bin/droplang` within the container.
 - `dropuser` - will execute `/usr/local/bin/dropuser` within the container.
