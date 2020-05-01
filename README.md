@@ -72,12 +72,18 @@ Create, and start the postgresql Gearbox container. Run a shell.
 
 `./launch shell postgresql`
 
-Create, and start the postgresql Gearbox container with version 12.2 and run a shell.
+Create, and start the postgresql Gearbox container with version 9.5.21 and run a shell.
 
-`./launch shell postgresql:12.2`
+`./launch shell postgresql:9.5.21`
 
-If postgresql is symlinked to `launch`, then the Gearbox container will be determined automatically.
-Symlinks will be created upon installation.
+`./launch shell postgresql:9.5.21 ls -l`
+
+`./launch shell postgresql:9.5.21 ps -eaf`
+
+
+### Available commands
+If postgresql is symlinked to `launch`, then the Gearbox container will be determined automatically and the default command will be run.
+All available commands for a Gearbox container will be automatically symlinked upon installation.
 
 `./postgresql`
 
@@ -85,18 +91,47 @@ Running postgresql Gearbox container default command. If a container has a defau
 
 `./postgresql -flag1 -flag2 variable`
 
-`./launch postgresql:12.2 -flag1 -flag2 variable`
+`./launch postgresql:9.5.21 -flag1 -flag2 variable`
+
+Gearbox containers may have multiple executables that can be run. The postgresql Gearbox container has the following available commands:
+- `clusterdb` - will execute `/usr/local/bin/clusterdb` within the container.
+- `createdb` - will execute `/usr/local/bin/createdb` within the container.
+- `createlang` - will execute `/usr/local/bin/createlang` within the container.
+- `createuser` - will execute `/usr/local/bin/createuser` within the container.
+- Is the default command and will execute `/usr/local/bin/psql` within the container.
+- `dropdb` - will execute `/usr/local/bin/dropdb` within the container.
+- `droplang` - will execute `/usr/local/bin/droplang` within the container.
+- `dropuser` - will execute `/usr/local/bin/dropuser` within the container.
+- `ecpg` - will execute `/usr/local/bin/ecpg` within the container.
+- `initdb` - will execute `/usr/local/bin/initdb` within the container.
+- `pg_archivecleanup` - will execute `/usr/local/bin/pg_archivecleanup` within the container.
+- `pg_basebackup` - will execute `/usr/local/bin/pg_basebackup` within the container.
+- `pg_config` - will execute `/usr/local/bin/pg_config` within the container.
+- `pg_controldata` - will execute `/usr/local/bin/pg_controldata` within the container.
+- `pg_ctl` - will execute `/usr/local/bin/pg_ctl` within the container.
+- `pg_dump` - will execute `/usr/local/bin/pg_dump` within the container.
+- `pg_dumpall` - will execute `/usr/local/bin/pg_dumpall` within the container.
+- `pg_isready` - will execute `/usr/local/bin/pg_isready` within the container.
+- `pg_receivexlog` - will execute `/usr/local/bin/pg_receivexlog` within the container.
+- `pg_recvlogical` - will execute `/usr/local/bin/pg_recvlogical` within the container.
+- `pg_resetxlog` - will execute `/usr/local/bin/pg_resetxlog` within the container.
+- `pg_restore` - will execute `/usr/local/bin/pg_restore` within the container.
+- `pg_standby` - will execute `/usr/local/bin/pg_standby` within the container.
+- `pg_test_fsync` - will execute `/usr/local/bin/pg_test_fsync` within the container.
+- `pg_test_timing` - will execute `/usr/local/bin/pg_test_timing` within the container.
+- `pg_upgrade` - will execute `/usr/local/bin/pg_upgrade` within the container.
+- `pg_xlogdump` - will execute `/usr/local/bin/pg_xlogdump` within the container.
+- `pgbench` - will execute `/usr/local/bin/pgbench` within the container.
+- `postmaster` - will execute `/usr/local/bin/postmaster` within the container.
+- `psql` - will execute `/usr/local/bin/psql` within the container.
+- `reindexdb` - will execute `/usr/local/bin/reindexdb` within the container.
+- `vacuumdb` - will execute `/usr/local/bin/vacuumdb` within the container.
+- `vacuumlo` - will execute `/usr/local/bin/vacuumlo` within the container.
 
 
-Running alternate commands within the postgresql Gearbox container.
-
-`./launch shell postgresql:12.2 ls -l`
-
-`./launch shell postgresql:12.2 ps -eaf`
-
-
+### Remote connection
 ssh - All [Gearbox](https://github.com/gearboxworks/) containers have a running SSH daemon. So you can connect remotely.
-To show what ports are exported to the host.
+To show what ports are exported to the host, use the following command.
 
 `./launch list postgresql`
 
