@@ -46,6 +46,7 @@ It provides three important functional areas, without any Docker container learn
 
 It also provides a functional SSH daemon for connecting remotely as well as a standard set of common tools and utilities.
 
+Further `launch` documentation can be [found here](https://github.com/gearboxworks/docker-template/blob/master/LAUNCH.md).
 
 ### Download launch
 `launch` is currently in beta testing and is included along with all Gearbox Docker repos.
@@ -72,13 +73,13 @@ Create, and start the postgresql Gearbox container. Run a shell.
 
 `./launch shell postgresql`
 
-Create, and start the postgresql Gearbox container with version 11.7 and run a shell.
+Create, and start the postgresql Gearbox container with version 9.5.21 and run a shell.
 
-`./launch shell postgresql:11.7`
+`./launch shell postgresql:9.5.21`
 
-`./launch shell postgresql:11.7 ls -l`
+`./launch shell postgresql:9.5.21 ls -l`
 
-`./launch shell postgresql:11.7 ps -eaf`
+`./launch shell postgresql:9.5.21 ps -eaf`
 
 
 ### Available commands
@@ -91,7 +92,7 @@ Running postgresql Gearbox container default command. If a container has a defau
 
 `./postgresql -flag1 -flag2 variable`
 
-`./launch postgresql:11.7 -flag1 -flag2 variable`
+`./launch postgresql:9.5.21 -flag1 -flag2 variable`
 
 Gearbox containers may have multiple executables that can be run. The postgresql Gearbox container has the following available commands:
 - `clusterdb` - will execute `/usr/local/bin/clusterdb` within the container.
